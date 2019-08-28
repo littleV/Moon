@@ -1,12 +1,60 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>Page Title</title>
-</head>
-<body>
-
-<h1>This is a Heading</h1>
-<p><img src="https://dummyimage.com/600x400/000/fff"/></p>
-
-</body>
+	<head>
+		<title>OneArt</title>
+		<meta charset="utf-8" />
+	  	<meta name="keywords" content="Global, Fine, Art">
+	  	<meta name="description" content="Company that brings art to daily life.">
+	  	<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/bootstrap/4.3.1/css/bootstrap.min.css">
+		<script src="assets/jquery/3.4.1/jquery.min.js"></script>
+		<script src="assets/popper.js/1.14.7/popper.min.js"></script>
+		<script src="assets/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+		<script src="assets/html5media/html5media.min.js"></script>
+		<style type="text/css">
+			.fix-height-80 {
+				height: 80px;
+			}
+			.inline{
+				display: inline;
+			}
+			.vertical-center {
+			  margin: 0;
+			  padding: 0;
+			  position: absolute;
+			  top: 50%;
+			  -ms-transform: translateY(-50%);
+			  transform: translateY(-50%);
+			}
+			.blue-background{
+				background-color: #B9D9EB
+			}
+			.white-background{
+				background-color: white;
+			}
+			.margin-top-20{
+				margin-top: 20px;
+			}
+		</style>
+	</head>
+	<body  class="blue-background">
+		<div class="container-fluid">
+			<div class="row white-background">
+			  <div class="col-md-3 fix-height-80">
+			  	<img class="inline" src="contents/images/logoBlue.jpeg" width="80" height="80"/>
+				<p class="inline vertical-center">OneArt</p>
+			  </div>
+			  <div class="col-md-9 fix-height-80">
+			  	<nav class="vertical-center">
+					<a href="products/">Products</a> |
+					<a href="news/">News</a> |
+					<a href="about/">About</a> 
+				</nav>	
+			  </div>
+			</div>
+			<div align="center" class="margin-top-20">
+				<video src="contents/videos/OneArtCompany.mov" width="640" height="360" controls autoplay loop muted>Your browser does not support video.</video>
+			</div>
+		</div>
+	</body>
 </html>
