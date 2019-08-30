@@ -22,7 +22,7 @@
 		    .main{
 				margin-top: 10vh;
 				height: 80vh;
-			    background-color: grey;
+			    background-color: #B9D9EB;
 		    }
         .footer{
         height: 10vh;
@@ -36,10 +36,6 @@
       margin-top: 1vh;
       margin-left: 1vh;
       display: inline;
-    }
-    #iconText{
-      display: inline;
-      font-size: 2vh;
     }
     #menu {
       display: inline;  
@@ -67,7 +63,7 @@
         color: black;
       }
       #menu a:hover{
-        color: #0b9e9e;
+        color: #B9D9EB;
       }
       #mainVideo {
       	margin-top: 10vh;
@@ -120,8 +116,10 @@
       	height: 56.25vw
       }
     }
-    #contactus p{
-      color: white;
+
+    #contactus h1, p{
+    
+      text-align: center;
     }
 		</style>
 		<script type="text/javascript">
@@ -143,7 +141,6 @@ function clickOnIconMenu(){
 		<header class="header">
 			<div>
       <img id="iconImage" src="../contents/images/logoBlue.jpeg"/>
-      <p id="iconText">OneArt</p>
        
        <div id="menuIcon" onclick="clickOnIconMenu()"><img src="../contents/images/iconMenu.png"/></div>
        <div id="dropDownMenu">
@@ -159,10 +156,14 @@ function clickOnIconMenu(){
      </div>
 		</header>
 		<main class="main">
-			<div id="contactus" align="center">
-        <p>Should you have any questions</p><p>Please email oneartproject2019@gmail.com.</p>
+			<div id="contactus">
+        <h1>Contact Us</h1><p>Please email oneartproject2019@gmail.com.</p>
       </div>
 		</main>
-    <footer class="footer"></footer>
+    <footer class="footer">
+      <div style="text-align: center;">
+      <p>©2019 by OneArt Group, Inc. All Rights Reserved.</p>
+    </div>
+    </footer>
 	</body>
 </html>
