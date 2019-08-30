@@ -21,9 +21,16 @@
 		    }
 		    .main{
 				margin-top: 10vh;
-				height: 90vh;
-			    background-color: grey;
+				height: 80vh;
+			    background-color: black;
+          z-index: 50;
 		    }
+        .footer{
+        height: 10vh;
+        bottom: 0;
+        width: 100%;
+        z-index: 100;
+        }
 			#iconImage{
       width: 8vh;
       height: 8vh;
@@ -33,7 +40,7 @@
     }
     #iconText{
       display: inline;
-      font-size: 2vh;
+      font-size: 4vh;
     }
     #menu {
       display: inline;  
@@ -63,11 +70,6 @@
       #menu a:hover{
         color: #0b9e9e;
       }
-      #mainVideo {
-      	margin-top: 10vh;
-      	width: 60vw;
-      	height: 33.75vw;
-      }
     }
     /* narrow screen */
     @media only screen and (max-width: 600px){
@@ -81,9 +83,9 @@
         position: absolute;
         top: 10vh;
         right: 0vh;
-        width: 20vw;
-        font-size: 2vh;
-        height: 6vh;
+        width: fit-content;
+        font-size: ;
+        height: fit-content;
         background-color: #ffffff;
       }
       .show{
@@ -108,12 +110,23 @@
       #menu {
         display: none;
       }
-      #mainVideo {
-      	margin-top: 10vh;
-      	width: 100vw;
-      	height: 56.25vw
+     
       }
-    }
+
+      @media (min-aspect-ratio: 512/360) {
+        #mainVideo {
+          height: 80vh;
+          width: calc( 640/360 * 80vh);
+        }
+      }
+
+      /* Maximum aspect ratio */
+      @media (max-aspect-ratio: 512/360 ) {
+        #mainVideo {
+          width: 100vw;
+          height: calc( 360/640 * 100vw);
+        }
+      }
 		</style>
 		<script type="text/javascript">
 function clickOnIconMenu(){
@@ -134,7 +147,6 @@ function clickOnIconMenu(){
 		<header class="header">
 			<div>
       <img id="iconImage" src="contents/images/logoBlue.jpeg"/>
-      <p id="iconText">OneArt</p>
        
        <div id="menuIcon" onclick="clickOnIconMenu()"><img src="contents/images/iconMenu.png"/></div>
        <div id="dropDownMenu">
@@ -154,5 +166,6 @@ function clickOnIconMenu(){
 				<video id="mainVideo" src="contents/videos/OneArtCompany.mov" controls autoplay loop muted>Your browser does not support video.</video>
 			</div>
 		</main>
+    <footer class="footer"></footer>
 	</body>
 </html>
