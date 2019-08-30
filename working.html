@@ -12,44 +12,24 @@
 		<script src="assets/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 		<script src="assets/html5media/html5media.min.js"></script>
 		<style type="text/css">
-    body{
-           font-family: Optima, sans-serif;
-    }
 			.header{
 				position: fixed;
 			    height: 10vh;
 			    top: 0;
 			    width: 100%;
-          background-color: white;
-     
-          z-index: 100;
+			    z-index: 100;
 		    }
 		    .main{
-				  margin-top: 10vh;
+				margin-top: 10vh;
+				height: 80vh;
+			    background-color: black;
           z-index: 50;
 		    }
-        #what{
-          position: relative;
-          height: 90vh;
-          background-color: #d6d6d6;
-        }
-        #why{
-          height: 90vh;
-          background-color: blue;
-        }
-        #how{
-          height: 90vh;
-          background-color: yellow;
-        }
-        #contact{
-          height: 90vh;
-          background-color: grey;
-        }
         .footer{
         height: 10vh;
         bottom: 0;
         width: 100%;
-        z-index: 50;
+        z-index: 100;
         }
 			#iconImage{
       width: 8vh;
@@ -67,36 +47,9 @@
       float: right;
       top: 50%;
     }
-    .arrow-right {
-  width: 0; 
-  height: 0; 
-  border-top: 45vh solid transparent;
-  border-bottom: 45vh solid transparent;
-  
-  border-left: 45vh solid #B9D9EB;
-}
-
-      /* wider than video */
-      @media (min-aspect-ratio: 576/360) {
-        #mainVideo {
-          position: absolute;
-          top:20vh;
-          right: 5vw;
-          height: 50vh;
-          width: calc( 640/360 * 50vh);
-        }
-      }
-
-      /* narrower than video */
-      @media (max-aspect-ratio: 576/360 ) {
-        #mainVideo {
-          position: absolute;
-          top:calc( 45vh - 360/640 * 50vw /2);
-          right:10%;
-          width: 50vw;
-          height: calc( 360/640 * 50vw);
-        }
-      }
+    .inline {
+      display: inline;
+    }
     /* wider screen */
     @media only screen and (min-width: 600px){
       #menuIcon {
@@ -114,14 +67,8 @@
       #menu a {
         color: black;
       }
-
       #menu a:hover{
         color: #B9D9EB;
-      }
-       #whatText {
-        position: absolute;
-        top:20vh;
-        left: 5vw;
       }
     }
     /* narrow screen */
@@ -163,25 +110,25 @@
       #menu {
         display: none;
       }
-      #whatText {
-        position: absolute;
-        top:0;
-        text-align: center;
+     
       }
-      #mainVideo {
-          position: absolute;
-          top:calc( 45vh - 360/640 * 100vw /2);
-          left: 0;
+
+      @media (min-aspect-ratio: 512/360) {
+        #mainVideo {
+          height: 80vh;
+          width: calc( 640/360 * 80vh);
+        }
+      }
+
+      /* Maximum aspect ratio */
+      @media (max-aspect-ratio: 512/360 ) {
+        #mainVideo {
           width: 100vw;
           height: calc( 360/640 * 100vw);
         }
-     
       }
 		</style>
 		<script type="text/javascript">
-    function goToHomePage(){
-      window.location = '/';
-    }
 function clickOnIconMenu(){
       document.getElementById("dropDownMenu").classList.toggle("show");
     }
@@ -199,7 +146,7 @@ function clickOnIconMenu(){
 	<body>
 		<header class="header">
 			<div>
-      <img id="iconImage" onclick="goToHomePage()" src="contents/images/logoBlue.jpeg"/>
+      <img id="iconImage" src="contents/images/logoBlue.jpeg"/>
        
        <div id="menuIcon" onclick="clickOnIconMenu()"><img src="contents/images/iconMenu.png"/></div>
        <div id="dropDownMenu">
@@ -209,30 +156,15 @@ function clickOnIconMenu(){
         </ul> 
        </div>
        <nav id="menu">
-          <a href="#what">What  </a> | 
-          <a href="#why">Why  </a> |
-          <a href="#how">How  </a> | 
-          <a href="#contact">Contact</a> 
+          <a href="news/">News</a> | 
+          <a href="about/">About</a> 
         </nav>
      </div>
 		</header>
 		<main class="main">
-       
-      <div id="what">
-        <a name="what"></a>
-        <div class="arrow-right"></div>
-        <div id="whatText">
-          <h3>What do we do?</h3>
-          <p>We build an app that brings art to daily life. It's an art exchange that helps emerging artists to build a fan base, sell their art, and helps a user to discover the latest trend of the art world.</p>
-        </div>
-        <video id="mainVideo" src="contents/videos/OneArtCompany.mov" controls autoplay loop muted>Your browser does not support video.</video>
-      </div>
-       
-      <div id="why"><a name="why"></a></div>
-      
-      <div id="how"><a name="how"></a> </div>
-      
-      <div id="contact"><a name="contact"></a></div>
+			<div align="center" class="margin-top-20">
+				<video id="mainVideo" src="contents/videos/OneArtCompany.mov" controls autoplay loop muted>Your browser does not support video.</video>
+			</div>
 		</main>
     <footer class="footer">
       <div style="text-align: center;">
