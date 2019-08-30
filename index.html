@@ -12,49 +12,148 @@
 		<script src="assets/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 		<script src="assets/html5media/html5media.min.js"></script>
 		<style type="text/css">
-			.fix-height-80 {
-				height: 80px;
-			}
-			.inline{
-				display: inline;
-			}
-			.vertical-center {
-			  margin: 0;
-			  padding: 0;
-			  position: absolute;
-			  top: 50%;
-			  -ms-transform: translateY(-50%);
-			  transform: translateY(-50%);
-			}
-			.blue-background{
-				background-color: #B9D9EB
-			}
-			.white-background{
-				background-color: white;
-			}
-			.margin-top-20{
-				margin-top: 20px;
-			}
+			.header{
+				position: fixed;
+			    height: 10vh;
+			    top: 0;
+			    width: 100%;
+			    z-index: 100;
+		    }
+		    .main{
+				margin-top: 10vh;
+				height: 90vh;
+			    background-color: grey;
+		    }
+			#iconImage{
+      width: 8vh;
+      height: 8vh;
+      margin-top: 1vh;
+      margin-left: 1vh;
+      display: inline;
+    }
+    #iconText{
+      display: inline;
+      font-size: 2vh;
+    }
+    #menu {
+      display: inline;  
+      float: right;
+      top: 50%;
+    }
+    .inline {
+      display: inline;
+    }
+    /* wider screen */
+    @media only screen and (min-width: 600px){
+      #menuIcon {
+        display: none;
+      }
+      #dropDownMenu {
+        display: none;
+      }
+      #menu {
+        display: inline;
+        font-size: 4vh;
+        margin-top: 3vh !important;
+        margin-right: 2vh;
+      }
+      #menu a {
+        color: black;
+      }
+      #menu a:hover{
+        color: #0b9e9e;
+      }
+      #mainVideo {
+      	margin-top: 10vh;
+      	width: 60vw;
+      	height: 33.75vw;
+      }
+    }
+    /* narrow screen */
+    @media only screen and (max-width: 600px){
+      #menuIcon {
+        display: inline;
+        width: 8vh;
+        height: 8vh;
+      }
+      #dropDownMenu {
+        display: none;
+        position: absolute;
+        top: 10vh;
+        right: 0vh;
+        width: 20vw;
+        font-size: 2vh;
+        height: 6vh;
+        background-color: #ffffff;
+      }
+      .show{
+        display: block !important;
+      }
+      #dropDownMenu ul {
+       list-style-type: none;
+      }
+      #dropDownMenu a {
+       color: black;
+      }
+      #dropDownMenu a:hover {
+       color: #0b9e9e;
+      }
+      #menuIcon img{
+        width: 8vh;
+        height: 8vh;
+        float: right;
+        margin-top: 1vh;
+        margin-right: 1vh;
+      }
+      #menu {
+        display: none;
+      }
+      #mainVideo {
+      	margin-top: 10vh;
+      	width: 100vw;
+      	height: 56.25vw
+      }
+    }
 		</style>
+		<script type="text/javascript">
+function clickOnIconMenu(){
+      document.getElementById("dropDownMenu").classList.toggle("show");
+    }
+    window.onclick = function(event) {
+      if (event.target.nodeName != "IMG" && event.target.src != "contents/images/iconMenu.png") {
+        var dropDownMenu = document.getElementById("dropDownMenu");
+        
+          if (dropDownMenu.classList.contains('show')) {
+            dropDownMenu.classList.remove('show');
+          }
+      }
+    }
+		</script>
 	</head>
-	<body  class="blue-background">
-		<div class="container-fluid">
-			<div class="row white-background">
-			  <div class="col-md-3 fix-height-80">
-			  	<img class="inline" src="contents/images/logoBlue.jpeg" width="80" height="80"/>
-				<p class="inline vertical-center">OneArt</p>
-			  </div>
-			  <div class="col-md-9 fix-height-80">
-			  	<nav class="vertical-center">
-					<a href="products/">Products</a> |
-					<a href="news/">News</a> |
-					<a href="about/">About</a> 
-				</nav>	
-			  </div>
-			</div>
+	<body>
+		<header class="header">
+			<div>
+      <img id="iconImage" src="contents/images/logoBlue.jpeg"/>
+      <p id="iconText">OneArt</p>
+       
+       <div id="menuIcon" onclick="clickOnIconMenu()"><img src="contents/images/iconMenu.png"/></div>
+       <div id="dropDownMenu">
+        <ul>
+          <li> <a href="news">News</a></li>
+            <li> <a href="about">About</a></li>
+        </ul> 
+       </div>
+       <nav id="menu">
+          <a href="news">News</a> | 
+          <a href="about">About</a> 
+        </nav>
+     </div>
+		</header>
+		<main class="main">
 			<div align="center" class="margin-top-20">
-				<video src="contents/videos/OneArtCompany.mov" width="640" height="360" controls autoplay loop muted>Your browser does not support video.</video>
+				<video id="mainVideo" src="contents/videos/OneArtCompany.mov" controls autoplay loop muted>Your browser does not support video.</video>
 			</div>
-		</div>
+		</main>
+		<footer></footer>
 	</body>
 </html>
