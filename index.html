@@ -41,7 +41,7 @@
           height: 90vh;
         }
         #whyText{
-          color: #d6d6d6;
+          color: white;
           top: 20vh;
           left: 10vw;
           position: absolute;
@@ -99,18 +99,18 @@
 }
 
       /* wider than video */
-      @media (min-aspect-ratio: 576/360) {
+      @media (min-aspect-ratio: 959/716) {
         #mainVideo {
           position: absolute;
           top:20vh;
           right: 5vw;
           height: 50vh;
-          width: calc( 640/360 * 50vh);
+          width: calc( 1066/716 * 50vh);
         }
       }
 
       /* narrower than video */
-      @media (max-aspect-ratio: 576/360 ) {
+      @media (max-aspect-ratio: 959/716 ) {
         #mainVideo {
           position: absolute;
           top:calc( 45vh - 360/640 * 50vw /2);
@@ -195,10 +195,10 @@
       }
       #mainVideo {
           position: absolute;
-          top:calc( 45vh - 360/640 * 100vw /2);
+          top:calc( 45vh - 1066/716 * 100vw /2);
           left: 0;
           width: 100vw;
-          height: calc( 360/640 * 100vw);
+          height: calc( 1066/716 * 100vw);
         }
      
       }
