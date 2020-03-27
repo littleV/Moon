@@ -28,7 +28,7 @@
         data_overlay();
         changeColor();
         background();
-        initMap();
+        // initMap();
         LoadingPage();
         SliderProject();
         slick_client(wind);
