@@ -13,12 +13,18 @@
         to download app from app store.
      -->
     <script>
+    var IS_IPAD = navigator.userAgent.match(/iPad/i) != null,
+    IS_IPHONE = !IS_IPAD && ((navigator.userAgent.match(/iPhone/i) != null) || (navigator.userAgent.match(/iPod/i) != null)),
+    IS_IOS = IS_IPAD || IS_IPHONE,
+    IS_ANDROID = !IS_IOS && navigator.userAgent.match(/android/i) != null,
+    IS_MOBILE = IS_IOS || IS_ANDROID;
+
     function loadAppStore(){
         if (!document.webkitHidden) {
-            if(navigator.userAgent.toLowerCase().indexOf("android") > -1){
+            if(IS_ANDROID){
                 window.location.href = 'https://play.google.com/store/apps/details?id=com.truecaller&hl=en';
              }
-            if(navigator.userAgent.toLowerCase().indexOf("iphone") > -1){
+            if(IS_IOS){
                window.location.href = 'https://itunes.apple.com/lb/app/wechat/id414478124';
             }
         }
@@ -26,15 +32,21 @@
     window.onload = function() {
         var urlParams = new URLSearchParams(window.location.search);
         var screen = urlParams.get('screen');
-        var params = urlParams.get('params')
-        console.log()
-        var launchUrl = 'oneart://launch/?'
-        if (screen !== null) {
+        var params = urlParams.get('params');
+        var launchUrl = '';
+        if (IS_IOS) {
+            launchUrl = launchUrl + 'oneart://launch/?'
+            if (screen !== null) {
             launchUrl = launchUrl + 'screen=' + screen
+            }
+            if (params !== null) {
+                launchUrl = launchUrl + '&params=' + params
+            }
+        } else if (IS_ANDROID) {
+            launchUrl = 'intent://launch#Intent;package=com.verazhang.oneart;scheme=oneart;end;'
         }
-        if (params !== null) {
-            launchUrl = launchUrl + '&params=' + params
-        }
+        
+        
         window.location = launchUrl;
         setTimeout(loadAppStore, 2000);
     }
