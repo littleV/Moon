@@ -24,7 +24,19 @@
         }
     }
     window.onload = function() {
-        window.location = 'oneart://launch/?screen=login';
+        var urlParams = new URLSearchParams(window.location.search);
+        var screen = urlParams.get('screen');
+        var params = urlParams.get('params')
+        console.log()
+        var launchUrl = 'oneart://launch/?'
+        if (screen !== null) {
+            launchUrl = launchUrl + 'screen=' + screen
+        }
+        if (params !== null) {
+            launchUrl = launchUrl + '&params=' + params
+        }
+        console.log(launchUrl);
+        // window.location = launchUrl;
         setTimeout(loadAppStore, 2000);
     }
 
