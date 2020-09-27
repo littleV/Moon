@@ -33,19 +33,19 @@
     window.onload = function() {
         var urlParams = new URLSearchParams(window.location.search);
         var screen = urlParams.get('screen');
-        var params = urlParams.get('params');
-        var launchUrl = '';
-        if (IS_IOS) {
-            launchUrl = launchUrl + 'oneart://launch/?'
-            if (screen !== null) {
-            launchUrl = launchUrl + 'screen=' + screen
+        if (screen == "login") {
+            var token = urlParams.get('token');
+            var launchUrl = '';
+            if (IS_IOS) {
+                launchUrl = launchUrl + 'oneart://launch/?screen=login'
+                if (token !== null) {
+                    launchUrl = launchUrl + '&token=' + params
+                }
+            } else if (IS_ANDROID) {
+                launchUrl = 'intent://#Intent;package=io.oneart.app;scheme=oneart;S.browser_fallback_url=https://play.google.com/store/apps/details?id=com.truecaller&hl=en;end;'
             }
-            if (params !== null) {
-                launchUrl = launchUrl + '&params=' + params
-            }
-        } else if (IS_ANDROID) {
-            launchUrl = 'intent://#Intent;package=io.oneart.app;scheme=oneart;S.browser_fallback_url=https://play.google.com/store/apps/details?id=com.truecaller&hl=en;end;'
         }
+
         
         // console.log(launchUrl)
         window.location = launchUrl;
