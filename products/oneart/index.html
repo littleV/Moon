@@ -13,7 +13,7 @@
         and app wouldn't open since it's not installed. In 1 second (1000 milliseconds) user is redirected
         to download app from app store.
      -->
-<!--     <script>
+    <script>
     var IS_IPAD = navigator.userAgent.match(/iPad/i) != null,
     IS_IPHONE = !IS_IPAD && ((navigator.userAgent.match(/iPhone/i) != null) || (navigator.userAgent.match(/iPod/i) != null)),
     IS_IOS = IS_IPAD || IS_IPHONE,
@@ -25,9 +25,9 @@
             // if(IS_ANDROID){
             //     window.location.href = 'https://play.google.com/store/apps/details?id=com.truecaller&hl=en';
             //  }
-            if(IS_IOS){
-               window.location.href = 'https://itunes.apple.com/lb/app/wechat/id414478124';
-            }
+            // if(IS_IOS){
+            //    window.location.href = 'https://itunes.apple.com/lb/app/wechat/id414478124';
+            // }
         }
     }
     window.onload = function() {
@@ -47,15 +47,14 @@
             launchUrl = 'intent://#Intent;package=io.oneart.app;scheme=oneart;S.browser_fallback_url=https://play.google.com/store/apps/details?id=com.truecaller&hl=en;end;'
         }
         
-        
-        window.location = launchUrl;
-        setTimeout(loadAppStore, 2000);
+        console.log(launchUrl)
+        // window.location = launchUrl;
+        // setTimeout(loadAppStore, 2000);
     }
 
-    </script> -->
+    </script>
 </head>
 <body>
- hello world
 
 </body>
 </html>
