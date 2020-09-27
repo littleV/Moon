@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0, maximum-scale=1.0" />
+    <title>OneArt</title>
+    <style>@media screen and (max-device-width:480px){body{-webkit-text-size-adjust:none}}</style>
+ 
+    <!-- implement javascript on web page that first first tries to open the deep link
+        1. if user has app installed, then they would be redirected to open the app to specified screen
+        2. if user doesn't have app installed, then their browser wouldn't recognize the URL scheme
+        and app wouldn't open since it's not installed. In 1 second (1000 milliseconds) user is redirected
+        to download app from app store.
+     -->
+    <script>
+    var IS_IPAD = navigator.userAgent.match(/iPad/i) != null,
+    IS_IPHONE = !IS_IPAD && ((navigator.userAgent.match(/iPhone/i) != null) || (navigator.userAgent.match(/iPod/i) != null)),
+    IS_IOS = IS_IPAD || IS_IPHONE,
+    IS_ANDROID = !IS_IOS && navigator.userAgent.match(/android/i) != null,
+    IS_MOBILE = IS_IOS || IS_ANDROID;
+
+    function loadAppStore(){
+        if (!document.webkitHidden) {
+            // if(IS_ANDROID){
+            //     window.location.href = 'https://play.google.com/store/apps/details?id=com.truecaller&hl=en';
+            //  }
+            if(IS_IOS){
+               window.location.href = 'https://itunes.apple.com/lb/app/wechat/id414478124';
+            }
+        }
+    }
+    window.onload = function() {
+        var urlParams = new URLSearchParams(window.location.search);
+        var screen = urlParams.get('screen');
+        var params = urlParams.get('params');
+        var launchUrl = '';
+        if (IS_IOS) {
+            launchUrl = launchUrl + 'oneart://launch/?'
+            if (screen !== null) {
+            launchUrl = launchUrl + 'screen=' + screen
+            }
+            if (params !== null) {
+                launchUrl = launchUrl + '&params=' + params
+            }
+        } else if (IS_ANDROID) {
+            launchUrl = 'intent://#Intent;package=io.oneart.app;scheme=oneart;S.browser_fallback_url=https://play.google.com/store/apps/details?id=com.truecaller&hl=en;end;'
+        }
+        
+        
+        window.location = launchUrl;
+        setTimeout(loadAppStore, 2000);
+    }
+
+    </script>
+</head>
+<body>
+ 
+
+</body>
+</html>
