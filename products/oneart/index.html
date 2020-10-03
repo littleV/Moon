@@ -42,7 +42,7 @@
                     launchUrl = launchUrl + '&token=' + token
                 }
             } else if (IS_ANDROID) {
-                launchUrl = 'intent://launch_login_token/#Intent;scheme=oneart;package=io.oneart.app;end'
+                launchUrl = 'intent://'+token+'/#Intent;scheme=oneart;package=io.oneart.app;end'
             }
         }
 
